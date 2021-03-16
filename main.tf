@@ -7,12 +7,6 @@ terraform {
   }
 }
 
-provider "aws" {
-    region = "us-east-1"
-    access_key = "AKIATFTDRUSY5KTTMY2U"
-    secret_key = "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"
-}
-
 # resource "<provider>_<resource_type>" "name" {
 #     config options...
 #     key = "value"
