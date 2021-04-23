@@ -106,6 +106,10 @@ resource "aws_eip" "one" {
 }
 
 # 9. Create Ubuntu server
+data "template_file" "apache_work" {
+  template = file("install_apache.sh")
+}
+
 resource "aws_instance" "web-server-instance" {
   ami               = "ami-0742b4e673072066f"
   instance_type     = "t2.micro"
@@ -117,7 +121,7 @@ resource "aws_instance" "web-server-instance" {
     network_interface_id  = aws_network_interface.web-server-nic.id
   }
 
-  user_data = "${file("install_apache.sh")}"
+  user_data = data.template_file.apache_work.rendered
 
   tags = {
     Name = "web-server"
