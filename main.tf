@@ -105,7 +105,7 @@ resource "aws_eip" "one" {
   depends_on                = [aws_internet_gateway.gw]
 }
 
-9. Create Ubuntu server
+# 9. Create Ubuntu server
 data "template_file" "apache_work" {
   template = file("../scripts/install_apache.sh")
 }
