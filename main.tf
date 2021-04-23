@@ -9,8 +9,6 @@ terraform {
 
 provider "aws" {
     region      = "us-east-1"
-    access_key = "HIDE_ME"
-    secret_key = "HIDE_ME_TOO"
 }
 
 # resource "<provider>_<resource_type>" "name" {
