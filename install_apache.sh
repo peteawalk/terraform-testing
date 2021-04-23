@@ -1,4 +1,4 @@
- #!/bin/bash
+ #!/usr/bin/env bash
 sudo apt update -y
 sudo apt install apahce2 -y
 sudo systemctl start apache2
