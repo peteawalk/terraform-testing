@@ -107,7 +107,7 @@ resource "aws_eip" "one" {
 
 # 9. Create Ubuntu server
 data "template_file" "apache_work" {
-  template = file("../scripts/install_apache.sh")
+  template = file("scripts/install_apache.sh")
 }
 
 resource "aws_instance" "web-server-instance" {
@@ -121,7 +121,7 @@ resource "aws_instance" "web-server-instance" {
     network_interface_id  = aws_network_interface.web-server-nic.id
   }
 
-  user_data = data.template_file.apache_work.rendered
+  user_data = data.template_file.apache_work.id
 
   tags = {
     Name = "web-server"
