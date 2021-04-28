@@ -110,20 +110,20 @@ data "template_file" "apache_work" {
   template = file("scripts/install_apache.sh")
 }
 
-resource "aws_instance" "web-server-instance" {
-  ami               = "ami-0742b4e673072066f"
-  instance_type     = "t2.micro"
-  availability_zone = "us-east-1a"
-  key_name          = "main-key"
+# resource "aws_instance" "web-server-instance" {
+#   ami               = "ami-0742b4e673072066f"
+#   instance_type     = "t2.micro"
+#   availability_zone = "us-east-1a"
+#   key_name          = "main-key"
 
-  network_interface {
-    device_index          = 0
-    network_interface_id  = aws_network_interface.web-server-nic.id
-  }
+#   network_interface {
+#     device_index          = 0
+#     network_interface_id  = aws_network_interface.web-server-nic.id
+#   }
 
-  user_data = data.template_file.apache_work.id
+#   user_data = data.template_file.apache_work.id
 
-  tags = {
-    Name = "web-server"
-  }
-}
+#   tags = {
+#     Name = "web-server"
+#   }
+# }
